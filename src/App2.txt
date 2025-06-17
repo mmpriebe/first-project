@@ -1,0 +1,50 @@
+import { useEffect, useState } from "react";
+
+export default function App() {
+
+  const [primeiroNumero, setPrimeiroNumero] = useState<number>(0);
+  const [segundoNumero, setSegundoNumero] = useState<number>(0);
+  const [operacao, setOperacao] = useState('0');
+  const [resultado, setResultado] = useState(0);
+
+  useEffect(() => {
+    const resultadoSoma = primeiroNumero + segundoNumero;
+    
+    if(!isNaN(resultadoSoma)){  
+      switch (operacao) {
+        case '+':
+          setResultado(primeiroNumero + segundoNumero);  
+        break;
+      
+        case '-':
+          setResultado(primeiroNumero - segundoNumero);  
+        break;
+        case '*':
+          setResultado(primeiroNumero * segundoNumero);  
+        break;
+        case '/':
+          segundoNumero > 0 ? setResultado(primeiroNumero / segundoNumero) : alert('Divisao por zero');
+        break;
+      }
+    }
+  }, [primeiroNumero, segundoNumero, operacao]);
+
+
+  return (
+    <> 
+        <input type="number" onChange={(e) => {setPrimeiroNumero(e.target.valueAsNumber)}} value={primeiroNumero}/>
+
+        <select onChange={(e) => {setOperacao(e.target.value)}} value={operacao}>
+          <option value="">Selecione a operação</option>
+          <option value="+">+</option>
+          <option value="-">-</option>
+          <option value="*">*</option>
+          <option value="/">/</option>
+        </select>
+
+        <input type="number" onChange={(e) => {setSegundoNumero(e.target.valueAsNumber)}} value={segundoNumero} />
+
+        <button type="submit">Calcular</button><b>RESULTADO: </b>{resultado}
+    </>
+  )
+}

@@ -1,0 +1,52 @@
+import { useState } from "react";
+
+export default function App() {
+
+  const [nome, setNome] = useState('');
+  const [email, setEmail] = useState('');
+  const [mensagem, setMensagem] = useState('');
+  
+  function handleSubmit(event: React.FormEvent){
+    event.preventDefault()
+
+    //TODO: ENVIAR DADOS PARA O BACK-END
+    
+    console.log(`${nome} - ${email} - ${mensagem}`);
+    setNome('');
+    setEmail('');
+    setMensagem('');
+    
+  };
+
+  return (
+    <>  
+
+    <h1>Formulário de contato</h1>
+    <hr />
+
+    
+    <form onSubmit={handleSubmit}>
+
+      <p>Nome: </p>
+      <input type="text" required onChange={(e) => {setNome(e.target.value)}} value={nome} />
+
+      <br />
+
+      <p>E-mail: </p>
+      <input type="text" required onChange={(e) => {setEmail(e.target.value)}} value={email} />
+
+      <br />
+
+      <p>Mensagem: </p>
+      <textarea name="msg" required rows={5} cols={60} onChange={(e) => {setMensagem(e.target.value)}} value={mensagem}>   
+      </textarea>
+
+      <br />
+      <br />
+      <button type="submit">Enviar</button> 
+
+    </form>
+
+    </>
+  )
+}

@@ -1,0 +1,25 @@
+export default function App() {
+
+  const usuarios = [
+    {
+      name: 'Vitor',
+      lastname: 'Manuel'
+    },
+    {
+      name: 'Ana',
+      lastname: 'Nogeira'      
+    }
+  ]
+
+  return (
+    <> 
+      {usuarios.map((usuario) => {
+        return (
+          <>
+            {usuario.name} - {usuario.lastname} <br />
+          </>
+        )        
+      })}
+    </>
+  )
+}

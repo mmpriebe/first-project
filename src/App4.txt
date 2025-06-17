@@ -1,0 +1,14 @@
+import { useState } from "react"
+
+export default function App() {
+
+  const [logged, setLogged] = useState(true);
+  const [nome, setNome] = useState('1');
+
+  return (
+    <>
+      {logged && nome.length > 0 && <p>Promoções do dia</p>}
+      {!logged && <p>Você não está logado</p> }
+    </>
+  )
+}
