@@ -1,4 +1,4 @@
-import Header from "../layouts/Header";
+import Header from "../Header";
 import Footer from "../layouts/Footer";
 
 
