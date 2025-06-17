@@ -1,15 +1,21 @@
+import { useState } from 'react';
+import { Botao, Espaco, Section } from './AppStyled';
 import './assets/app.css'
 
 export default function App() {
 
+  const [theme, setTheme] = useState(false)
+
   return (
     <>
-      <h1 className="titulo">Titulo do Blog</h1>
-      <h2>Subtitulo do blog</h2>
-
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-        Ratione architecto excepturi officia ab officii.</p>
-
+      <Espaco largura='100%' altura='300px' black={theme}>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure, voluptatem!</p>
+      </Espaco>
+      <Section>
+        <Botao onClick={() => {setTheme(!theme)}}>Trocar tema</Botao>
+      </Section>
     </>
   )
 }
+
+
